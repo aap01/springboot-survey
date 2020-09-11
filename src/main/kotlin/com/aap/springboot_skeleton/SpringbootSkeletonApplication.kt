@@ -1,14 +1,15 @@
 package com.aap.springboot_skeleton
 
 import com.aap.springboot_skeleton.repository.AuthRepository
+import com.aap.springboot_skeleton.repository.QuestionRepository
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories
-import org.springframework.data.repository.Repository
 
 @SpringBootApplication
 @EnableJpaRepositories(basePackageClasses = [
-    AuthRepository::class
+    AuthRepository::class,
+    QuestionRepository::class
 ])
 class SpringbootSkeletonApplication
 
