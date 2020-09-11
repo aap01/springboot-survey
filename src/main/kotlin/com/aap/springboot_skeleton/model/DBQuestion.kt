@@ -3,9 +3,7 @@ package com.aap.springboot_skeleton.model
 import com.aap.springboot_skeleton.model.validator.ValuesAllowed
 import com.aap.springboot_skeleton.util.Resources
 import javax.persistence.*
-import javax.validation.constraints.Max
 import javax.validation.constraints.NotBlank
-import javax.validation.constraints.Pattern
 
 @Entity
 @Table(name = "question")
