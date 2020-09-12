@@ -1,6 +1,6 @@
 package com.aap.springboot_skeleton.controller
 
-import com.aap.springboot_skeleton.model.DBQuestion
+import com.aap.springboot_skeleton.model.db.DBQuestion
 import com.aap.springboot_skeleton.model.response.GenericResponse
 import com.aap.springboot_skeleton.model.response.SuccessResponse
 import com.aap.springboot_skeleton.service.QuestionService

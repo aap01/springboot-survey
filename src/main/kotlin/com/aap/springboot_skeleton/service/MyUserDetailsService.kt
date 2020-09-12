@@ -2,9 +2,10 @@ package com.aap.springboot_skeleton.service
 
 import com.aap.springboot_skeleton.exception.NotFoundException
 import com.aap.springboot_skeleton.model.request.AuthRequest
-import com.aap.springboot_skeleton.model.DBAuth
+import com.aap.springboot_skeleton.model.db.DBAuth
 import com.aap.springboot_skeleton.repository.AuthRepository
 import com.aap.springboot_skeleton.model.MyUserDetails
+import com.aap.springboot_skeleton.model.db.DbUserPersonalInfo
 import com.aap.springboot_skeleton.model.response.HelloResponse
 import com.aap.springboot_skeleton.util.Resources
 import com.aap.springboot_skeleton.util.throwException
@@ -36,28 +37,25 @@ class MyUserDetailsService : UserDetailsService {
 
     @Transactional
     fun signUpUser(auth: AuthRequest): DBAuth {
-//        if (auth.isValid()) {
-            val dbAuth = DBAuth(
-                username = auth.username.trim(),
-                password = passwordEncoder.encode(auth.password.trim())
-            )
-            return authRepository.save(dbAuth)
-//        }
-//        else throw BadRequestException(auth.getInvalidMessage())
+        val dbAuth = DBAuth(
+            username = auth.username.trim(),
+            password = passwordEncoder.encode(auth.password.trim()),
+            userPersonalInfo = DbUserPersonalInfo()
+        )
+        return authRepository.save(dbAuth)
     }
 
     @Transactional
     fun getUser(name: String?): HelloResponse {
         val notFoundException = NotFoundException(Resources.userNotFound)
-        return throwException({
-            val optional = authRepository.findByUsername(name!!)
-            optional.orElseThrow { notFoundException }
-            val user = optional.get()
-            HelloResponse(
-                username = user.username,
-                roles = user.roles.split(",")
-            )
-        }, notFoundException)
+        val optional = authRepository.findByUsername(name!!)
+        optional.orElseThrow { notFoundException }
+        val user = optional.get()
+        return HelloResponse(
+            username = user.username,
+            roles = user.roles.split(","),
+            imageUrl = user.userPersonalInfo.imageUrl
+        )
     }
 
 }

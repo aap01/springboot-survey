@@ -1,5 +1,6 @@
 package com.aap.springboot_skeleton.model
 
+import com.aap.springboot_skeleton.model.db.DBAuth
 import com.aap.springboot_skeleton.util.Constants.Companion.ROLE
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority

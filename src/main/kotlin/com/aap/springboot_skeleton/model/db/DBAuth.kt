@@ -1,7 +1,6 @@
-package com.aap.springboot_skeleton.model
+package com.aap.springboot_skeleton.model.db
 
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import com.aap.springboot_skeleton.model.ROLES
 import javax.persistence.*
 import javax.validation.constraints.NotBlank
 
@@ -16,7 +15,8 @@ data class DBAuth(
     val username: String,
     @NotBlank
     val password: String,
-    val roles: String = ROLES.USER.toString()
-) {
-
-}
+    val roles: String = ROLES.USER.toString(),
+    @OneToOne(cascade = [CascadeType.ALL])
+    @JoinColumn(name = "info_id", referencedColumnName = "id")
+    val userPersonalInfo: DbUserPersonalInfo
+)

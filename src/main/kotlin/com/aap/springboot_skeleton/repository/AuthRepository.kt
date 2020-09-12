@@ -1,6 +1,6 @@
 package com.aap.springboot_skeleton.repository
 
-import com.aap.springboot_skeleton.model.DBAuth
+import com.aap.springboot_skeleton.model.db.DBAuth
 import org.springframework.data.jpa.repository.JpaRepository
 import java.util.*
 

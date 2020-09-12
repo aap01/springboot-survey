@@ -1,6 +1,6 @@
 package com.aap.springboot_skeleton.service
 
-import com.aap.springboot_skeleton.model.DBQuestion
+import com.aap.springboot_skeleton.model.db.DBQuestion
 import com.aap.springboot_skeleton.repository.QuestionRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service

@@ -65,4 +65,5 @@ class ExceptionHandler : ResponseEntityExceptionHandler() {
         val genericError = GenericError(message = message, httpStatus = status)
         return ResponseEntity(genericError, genericError.httpStatus)
     }
+
 }

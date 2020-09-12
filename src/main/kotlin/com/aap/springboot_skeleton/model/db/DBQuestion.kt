@@ -1,4 +1,4 @@
-package com.aap.springboot_skeleton.model
+package com.aap.springboot_skeleton.model.db
 
 import com.aap.springboot_skeleton.model.validator.ValuesAllowed
 import com.aap.springboot_skeleton.util.Resources
