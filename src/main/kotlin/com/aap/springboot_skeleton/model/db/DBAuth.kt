@@ -16,7 +16,7 @@ data class DBAuth(
     @NotBlank
     val password: String,
     val roles: String = ROLES.USER.toString(),
-    @OneToOne(cascade = [CascadeType.ALL])
+    @OneToOne(cascade = [CascadeType.ALL], fetch = FetchType.LAZY)
     @JoinColumn(name = "info_id", referencedColumnName = "id")
     val userPersonalInfo: DbUserPersonalInfo
 )
